@@ -37,9 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # added cors, is needed to make calls from ui to api
+    'corsheaders',
+    'rest_framework',
+    'blog'
 ]
 
 MIDDLEWARE = [
+    'django.middleware.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    # added cors middleware (order is important)
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +57,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blog_backend.urls'
+
+# For development purposes
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
