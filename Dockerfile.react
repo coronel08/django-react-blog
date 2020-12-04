@@ -1,0 +1,11 @@
+# Dockerfile for building react frontend
+# https://willschenk.com/articles/2020/developing_react_inside_docker/
+FROM node:14-slim
+
+WORKDIR /app
+
+CMD bash
+
+# CLI Commands to make front end without installing node. 
+# docker build . -f Dockerfile.react -t {{blah}}
+# docker run -it --rm -v ${PWD}/app/frontend:/app {{blah}} npx create-react-app .
